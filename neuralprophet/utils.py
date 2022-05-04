@@ -520,7 +520,7 @@ def set_random_seed(seed=0):
     """
     np.random.seed(seed)
     torch.manual_seed(seed)
-    rs = RandomState(MT19937(SeedSequence(seed)))
+    RandomState(MT19937(SeedSequence(seed)))
 
 
 def set_logger_level(logger, log_level, include_handlers=False):
