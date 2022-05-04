@@ -9,6 +9,8 @@ from neuralprophet import hdays as hdays_part2
 import holidays as pyholidays
 import warnings
 import logging
+from numpy.random import MT19937
+from numpy.random import RandomState, SeedSequence
 
 log = logging.getLogger("NP.utils")
 
@@ -518,6 +520,7 @@ def set_random_seed(seed=0):
     """
     np.random.seed(seed)
     torch.manual_seed(seed)
+    RandomState(MT19937(SeedSequence(seed)))
 
 
 def set_logger_level(logger, log_level, include_handlers=False):
